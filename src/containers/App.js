@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from '../components/Persons/Person/Person'
+import Persons from '../components/Persons/Persons'
 import ValidationComponent from '../components/ValidationComponent'
 import CharComponent from '../components/CharComponent'
 
@@ -89,17 +89,11 @@ class App extends Component {
 
       persons = (
         <div>
-            { this.state.Persons.map((person, index) => {
-                return <Person 
-                id={person.id}
-                name={person.name}
-                key={person.id}
-                change={(event) => this.changeName(event, person.id)}
-                delPerson={() => this.deletePersonHandler(index)}
-                />
-              })
-              
-            }
+           <Persons 
+               persons={this.state.Persons}
+               clicked={this.deletePersonHandler}
+               changed={this.changeName}
+           />
         </div>
       );
 
@@ -108,9 +102,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>Assignments </h1>
+        <h1>Basics Of ReactJS </h1>
         <label>Enter Person Name: </label><input type="text" name="assignment" value={this.state.stringArray.join('')} onChange={(event) => this.countStringLength(event)} />
-
+        
         <ValidationComponent answer={this.state.otherstate} />
         <div>
           {
@@ -123,18 +117,7 @@ class App extends Component {
             })
           }
         </div>
-
-
-
-
-
-
-
-        <p>THis is an application</p>
-
         <button onClick={() => this.showHidePersons()}>{(this.state.toggleButton) ? 'Hide' : 'Show'} the person</button> 
-
-
         {persons}
 
       </div>
