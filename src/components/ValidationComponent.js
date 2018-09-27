@@ -6,8 +6,11 @@ const ValidatinComponent = (props) => {
         <div>
             <p>Answer is {props.answer}</p>
             <p>{
-                (props.answer < 5) ? 'Text is too short': 'Text is too long'
-
+                (props.answer !=='') ?
+                    (props.answer < 5) ? 'Text is too short': 'Text is too long'
+                :
+                    ''
+                
             }</p>
             
         </div>

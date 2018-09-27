@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './components/Person'
-import ValidationComponent from './components/ValidationComponent'
-import CharComponent from './components/CharComponent'
+import Person from '../components/Persons/Person/Person'
+import ValidationComponent from '../components/ValidationComponent'
+import CharComponent from '../components/CharComponent'
 
 class App extends Component {
 
@@ -11,7 +11,7 @@ class App extends Component {
       {id: '1234', name: 'JIMIT'},
       {id: 'swsw', name: 'ABCD'}
     ],
-    otherstate: 'Some other state',
+    otherstate: '',
     stringArray: [],
     toggleButton: false
   }
@@ -109,7 +109,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Assignments </h1>
-        <input type="text" name="assignment" value={this.state.stringArray.join('')} onChange={(event) => this.countStringLength(event)} />
+        <label>Enter Person Name: </label><input type="text" name="assignment" value={this.state.stringArray.join('')} onChange={(event) => this.countStringLength(event)} />
 
         <ValidationComponent answer={this.state.otherstate} />
         <div>
